@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "postinstall" : "mkdir dist; npm run build",
+    "postinstall": "mkdir dist; npm run build",
     "clean": "rm -rf dist",
     "build": "browserify src/index.js -o dist/bundle.js",
     "build:w": "watchify src/index.js -o dist/bundle.js"
@@ -27,6 +27,19 @@
     ]
   },
   "browserify": {
-    "transform": [["babelify", { "presets": ["latest","stage-2"] }]]
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "latest",
+            "stage-2"
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "d3v4": "^4.2.2"
   }
 }

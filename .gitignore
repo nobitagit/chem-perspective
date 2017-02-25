@@ -1,6 +1,7 @@
 #### joe made this: http://goel.io/joe
 
 dist/
+.auth_name.sh
 
 #####=== OSX ===#####
 .DS_Store

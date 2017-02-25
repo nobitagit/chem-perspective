@@ -2,8 +2,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis|Nunito:400,700" rel="stylesheet">  
   <style>
+  body {
+    font-family: 'Nunito', sans-serif;
+    margin: 50px 30px;
+  }
+  h2, p {
+    color: black;
+    opacity: 0.7;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
   .__embedded_chart__  {
     font-family: 'Dosis', sans-serif;
   }
@@ -11,8 +22,16 @@
   </style>
 </head>
 <body>
+  <div>
+    <h2>
+      Chemical sales by country
+    </h2>
+    <p>
+      China produces more chemicals than all the other countries in the top 10 combined.
+    </p>
+  </div>
   <svg class="__embedded_chart__" id="target"></svg>
   <script src="./../../node_modules/d3v4/build/d3.min.js"></script>
-  <script src="./script.js"></script>
+  <script src="./script.dist.js"></script>
 </body>
 </html>

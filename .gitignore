@@ -2,6 +2,7 @@
 
 dist/
 .auth_name.sh
+*.dist.js
 
 #####=== OSX ===#####
 .DS_Store

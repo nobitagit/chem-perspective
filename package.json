@@ -8,8 +8,8 @@
     "clean": "rm -rf dist",
     "build": "browserify src/index.js -o dist/bundle.js",
     "build:w": "watchify src/index.js -o dist/bundle.js",
-    "build:china": "babel src/2017-02-22-china/script.src.js -o src/2017-02-22-china/script.js",
-    "build:china:w": "babel src/2017-02-22-china/script.src.js  --watch -o src/2017-02-22-china/script.js --source-maps inline",
+    "build:china": "babel src/2017-02-22-china/script.js -o src/2017-02-22-china/script.dist.js",
+    "build:china:w": "babel src/2017-02-22-china/script.js  --watch -o src/2017-02-22-china/script.dist.js --source-maps inline",
     "lint": "eslint src/",
     "fix": "eslint src/ --fix"
   },

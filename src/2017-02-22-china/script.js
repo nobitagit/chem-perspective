@@ -47,38 +47,40 @@ const pack = d3.pack()
     .padding(5);
 
 const root = d3.hierarchy({children: data})
-    .sum(function(d) { return d.value; });
+    .sum(d => d.value);
 
 var node = svg.selectAll('.node')
     .data(pack(root).leaves())
-    .enter().append('g')
-      .attr('class', 'node')
-      .attr('transform', d => 'translate(' + d.x + ',' + d.y + ')');
+    .enter()
+    .append('g')
+    .attr('class', 'node')
+    .attr('transform', d => `translate(${d.x},${d.y})`);
 
 node.append('circle')
-      .attr('id', d => d.data.country)
-      .attr('r', d => d.r)
-      .style('fill', d => isChina(d) ? colors.high : colors.base );
+    .attr('id', d => d.data.country)
+    .attr('r', d => d.r)
+    .style('fill', d => isChina(d) ? colors.high : colors.base );
 
 node.append('clipPath')
-      .attr('id', d => 'clip-' + d.data.country)
+    .attr('id', d => 'clip-' + d.data.country)
     .append('use')
-      .attr('xlink:href', d => '#' + d.data.country);
+    .attr('xlink:href', d => '#' + d.data.country);
 
 node.append('text')
-      .attr('text-anchor', 'middle')
-      .attr('clip-path', d => 'url(#clip-' + d.data.country + ')')
-      .attr('fill', d => isChina(d) ? colors.txtHigh : colors.txtBase )
-      .attr('font-size', d => isChina(d) ? 38 : 18)
+    .attr('text-anchor', 'middle')
+    .attr('clip-path', d => 'url(#clip-' + d.data.country + ')')
+    .attr('fill', d => isChina(d) ? colors.txtHigh : colors.txtBase )
+    .attr('font-size', d => isChina(d) ? 38 : 18)
     .selectAll('tspan')
     .data(d => [d.data.country]) 
-    .enter().append('tspan')
-      .attr('x', 0)
-      .attr('y', (d, i, nodes) =>  13 + (i - nodes.length / 2 - 0.5) * 10)
-      .text(d => d);
+    .enter()
+    .append('tspan')
+    .attr('x', 0)
+    .attr('y', (d, i, nodes) =>  13 + (i - nodes.length / 2 - 0.5) * 10)
+    .text(d => d);
 
 node.append('title')
-      .text(function(d) { return d.value});
+    .text(d => d.value);
 
 function isChina(d) {
   return d.data.country === 'China';
